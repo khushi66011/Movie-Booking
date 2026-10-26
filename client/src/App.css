@@ -1,0 +1,372 @@
+/* ==========================================================================
+   IMOVIES - PREMIUM CINEMA EXPERIENCE THEME STYLESHEET
+   ========================================================================== */
+
+:root {
+  --cinema-bg: #0d0f17;
+  --cinema-card: #151824;
+  --cinema-card-hover: #1c2032;
+  --cinema-border: rgba(255, 255, 255, 0.1);
+  --cinema-red: #e50914;
+  --cinema-red-hover: #f40612;
+  --cinema-gold: #f5c518;
+  --cinema-gold-dark: #b8860b;
+  --seat-vip-border: #f5c518;
+  --seat-std-border: #4a5568;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--cinema-bg);
+  color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Background utilities */
+.bg-dark-cinema {
+  background-color: var(--cinema-card) !important;
+}
+
+.bg-cinema-dark {
+  background-color: #121520 !important;
+}
+
+/* Navbar & Brand */
+.brand-title {
+  font-family: 'Space Grotesk', 'Outfit', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+
+.brand-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.6));
+}
+
+/* Live IST Clock */
+.live-clock-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulse-dot 1.8s infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 12px #22c55e;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+/* Hero Banner */
+.hero-banner {
+  background: linear-gradient(180deg, rgba(13, 15, 23, 0.4) 0%, rgba(13, 15, 23, 0.95) 100%),
+    radial-gradient(ellipse at top, #281628 0%, #0d0f17 75%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Movie Card */
+.movie-card {
+  transition: transform 0.28s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.28s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(229, 9, 20, 0.2) !important;
+  border-color: rgba(229, 9, 20, 0.3) !important;
+}
+
+.movie-poster-wrapper {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background-color: #0b0c10;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.movie-card:hover .movie-poster {
+  transform: scale(1.05);
+}
+
+.movie-poster-gradient {
+  background: linear-gradient(to top, rgba(13, 15, 23, 0.95) 0%, transparent 100%);
+}
+
+.book-btn {
+  transition: all 0.2s ease;
+}
+
+.book-btn:hover {
+  background-color: #ff1e27 !important;
+  transform: scale(1.02);
+}
+
+/* Cinema Screen */
+.cinema-screen-container {
+  perspective: 450px;
+  margin-bottom: 2rem;
+}
+
+.cinema-screen-arc {
+  height: 24px;
+  margin: 0 auto;
+  max-width: 580px;
+  background: linear-gradient(180deg, #38bdf8 0%, rgba(56, 189, 248, 0.1) 100%);
+  border-radius: 50% / 100% 100% 0 0;
+  transform: rotateX(-35deg);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.55);
+}
+
+.cinema-screen-glow {
+  height: 40px;
+  max-width: 620px;
+  margin: -10px auto 0;
+  background: radial-gradient(ellipse at top, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+}
+
+.tracking-widest {
+  letter-spacing: 3px;
+}
+
+/* Seat Matrix Styles */
+.seat-matrix-wrapper {
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.seat-row-label {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.seat-aisle-gap {
+  width: 24px;
+}
+
+.seat-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px 8px 5px 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', monospace;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  padding: 0;
+}
+
+@media (max-width: 576px) {
+  .seat-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.65rem;
+  }
+  .seat-aisle-gap {
+    width: 14px;
+  }
+}
+
+/* Standard Seat Available */
+.seat-available-std {
+  background-color: #1a1e2c;
+  color: #cbd5e1;
+  border: 1.5px solid #3b4256;
+}
+
+.seat-available-std:hover {
+  background-color: #2b3248;
+  border-color: #60a5fa;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* VIP Seat Available */
+.seat-available-vip {
+  background-color: #262114;
+  color: #fde047;
+  border: 1.5px solid var(--seat-vip-border);
+}
+
+.seat-available-vip:hover {
+  background-color: #3b3318;
+  border-color: #ffea79;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(245, 197, 24, 0.4);
+}
+
+/* Selected Seats */
+.seat-selected-std {
+  background-color: var(--cinema-red) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #ff4d55 !important;
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.7);
+  transform: scale(1.08);
+}
+
+.seat-selected-vip {
+  background-color: var(--cinema-gold) !important;
+  color: #0f1016 !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 0 12px rgba(245, 197, 24, 0.8);
+  font-weight: 800;
+  transform: scale(1.08);
+}
+
+/* Occupied Seats */
+.seat-occupied {
+  background-color: #0f1118 !important;
+  color: #475569 !important;
+  border: 1px solid #1e2433 !important;
+  cursor: not-allowed !important;
+  opacity: 0.4;
+  transform: none !important;
+}
+
+/* Seat Legend Box */
+.legend-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Modals Backdrops */
+.seat-matrix-modal-backdrop,
+.checkout-modal-backdrop,
+.auth-modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+/* Success Checkmark Circle */
+.success-checkmark-circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+  animation: pop-bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pop-bounce {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Digital E-Ticket Styles */
+.max-w-3xl {
+  max-w-width: 800px;
+  max-width: 800px;
+}
+
+.max-w-md {
+  max-width: 480px;
+}
+
+.e-ticket-card {
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.border-end-dashed {
+  border-right: 2px dashed #cbd5e1;
+}
+
+@media (max-width: 767px) {
+  .border-end-dashed {
+    border-right: none;
+    border-bottom: 2px dashed #cbd5e1;
+  }
+}
+
+.ticket-stub-section {
+  position: relative;
+  background-color: #f8fafc !important;
+}
+
+.ticket-notch {
+  width: 24px;
+  height: 24px;
+  background-color: var(--cinema-bg);
+  border-radius: 50%;
+  position: absolute;
+  left: -12px;
+}
+
+.ticket-notch-top {
+  top: -12px;
+}
+
+.ticket-notch-bottom {
+  bottom: -12px;
+}
+
+/* ==========================================================================
+   PRINT STYLES FOR DIGITAL E-TICKET
+   ========================================================================== */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+  }
+
+  .navbar,
+  .d-print-none,
+  .seat-matrix-modal-backdrop,
+  .checkout-modal-backdrop {
+    display: none !important;
+  }
+
+  .digital-ticket-container {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .e-ticket-card {
+    box-shadow: none !important;
+    border: 1px solid #000000 !important;
+    page-break-inside: avoid;
+    max-width: 100% !important;
+  }
+
+  .ticket-notch {
+    display: none !important;
+  }
+}
+
